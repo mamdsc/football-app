@@ -65,8 +65,6 @@ const Team: React.FC = () => {
           description: Yup.string().required('Description required'),
           website: Yup.string().url('This url is invalid'),
           tacticalScheme: !tacticalScheme ? Yup.string().required('Tactical scheme required') : Yup.string().optional(),
-          players:
-            (dataPlayers.length < 11 || dataPlayers.length > 11) ? Yup.string().required('Select 11 players') : Yup.string().optional(),
         });
 
         await schema.validate(data, {

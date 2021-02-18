@@ -17,9 +17,13 @@ const Top: React.FC = () => {
     const reducer = (accumulator: any, currentValue: any) => accumulator + currentValue;
 
     const avgs = dataTeams?.map((team) => {
+      let avgAge = 0;
+
       const arrayAges = team.players?.map((player) => player.age);
-      const totalAge = arrayAges?.reduce(reducer);
-      const avgAge = totalAge / arrayAges?.length;
+      if (arrayAges.length) {
+        const totalAge = arrayAges.reduce(reducer);
+        avgAge = totalAge / arrayAges.length;
+      }
 
       return {
         name: team.name,
